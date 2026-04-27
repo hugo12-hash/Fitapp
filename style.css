@@ -1,26 +1,26 @@
 /* ══════════════════════════════════════════════════════════════
-   style.css — App Sport
-   Design : sombre / athletic / premium
-   Typographie : Syne (titres) + DM Sans (corps)
+   style.css — App Nourel
+   Design : Velvet — prune profond · rose vif · serif élégant
+   Typographie : Georgia (titres) + DM Sans (corps)
 ══════════════════════════════════════════════════════════════ */
 
 /* ── Variables ──────────────────────────────────────────────── */
 :root {
-  --bg:        #0D0D0F;
-  --surface:   #16161A;
-  --surface-2: #1E1E26;
-  --border:    rgba(255,255,255,0.07);
-  --border-2:  rgba(255,255,255,0.12);
-  --text:      #EDECEA;
-  --text-2:    #8A8898;
-  --text-3:    #48485A;
-  --accent:    #6C63FF;       /* remplacé dynamiquement par JS */
-  --accent-rgb: 108,99,255;   /* idem */
-  --r-xl:      20px;
+  --bg:        #221228;          /* prune très profond        */
+  --surface:   #321A3A;          /* prune moyen               */
+  --surface-2: #3E2048;          /* prune légèrement plus clair */
+  --border:    rgba(244,192,209,0.10); /* rose très doux       */
+  --border-2:  rgba(244,192,209,0.20);
+  --text:      #F5E6F0;          /* blanc rosé chaud          */
+  --text-2:    #C4A0BE;          /* lavande rosé              */
+  --text-3:    #7A5A78;          /* prune délavé              */
+  --accent:    #D4537E;          /* rose framboise vif        */
+  --accent-rgb: 212,83,126;
+  --r-xl:      22px;
   --r-lg:      16px;
   --r-md:      10px;
   --r-sm:      7px;
-  --font-h:    'Syne', sans-serif;
+  --font-h:    Georgia, 'Times New Roman', serif;
   --font-b:    'DM Sans', sans-serif;
   --safe-top:  env(safe-area-inset-top, 0px);
   --safe-bot:  env(safe-area-inset-bottom, 0px);
@@ -69,67 +69,72 @@ button {
    HOME VIEW
 ══════════════════════════════════════════════════════════════ */
 .home {
-  padding: calc(var(--safe-top) + 28px) 20px calc(var(--safe-bot) + 40px);
+  padding: calc(var(--safe-top) + 32px) 22px calc(var(--safe-bot) + 44px);
   animation: view-in 0.35s ease;
 }
 
 .home-header {
-  margin-bottom: 36px;
+  margin-bottom: 38px;
 }
 
 .home-eyebrow {
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-3);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .home-title {
   font-family: var(--font-h);
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: 40px;
+  font-weight: normal;         /* Georgia est plus lisible sans bold forcé */
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .home-title .accent {
   color: var(--accent);
+  font-style: normal;
 }
 
 .home-subtitle {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 13px;
   color: var(--text-2);
   font-weight: 300;
+  letter-spacing: 0.02em;
 }
 
 /* ── Session Cards ──────────────────────────────────────────── */
 .session-cards {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .session-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
-  padding: 20px;
+  padding: 20px 20px 18px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
+/* Filet de couleur en haut (plus féminin qu'à gauche) */
 .session-card::before {
   content: '';
   position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: rgba(var(--accent-rgb), 1);
-  border-radius: 3px 0 0 3px;
+  left: 20px; right: 20px; top: 0;
+  height: 2px;
+  background: rgba(var(--accent-rgb), 0.7);
+  border-radius: 0 0 2px 2px;
 }
 
 .session-card:active {
@@ -146,12 +151,12 @@ button {
 
 .session-tag {
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 4px 11px;
+  padding: 4px 12px;
   border-radius: 100px;
-  background: rgba(var(--accent-rgb), 0.14);
+  background: rgba(var(--accent-rgb), 0.15);
   color: rgba(var(--accent-rgb), 1);
 }
 
@@ -165,11 +170,13 @@ button {
 
 .card-name {
   font-family: var(--font-h);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   margin-bottom: 4px;
+  color: var(--text);
 }
 
 .card-subtitle {
@@ -177,6 +184,7 @@ button {
   color: var(--text-2);
   font-weight: 300;
   margin-bottom: 18px;
+  letter-spacing: 0.01em;
 }
 
 .card-footer {
@@ -194,7 +202,7 @@ button {
 .card-progress-track {
   flex: 1;
   height: 2px;
-  background: var(--surface-2);
+  background: rgba(255,255,255,0.06);
   border-radius: 2px;
   overflow: hidden;
   display: none;
@@ -213,7 +221,8 @@ button {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(var(--accent-rgb), 0.1);
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +262,7 @@ button {
   height: 38px;
   border-radius: 50%;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,18 +281,19 @@ button {
 .header-name {
   font-family: var(--font-h);
   font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: normal;
+  font-style: italic;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--text);
 }
 
 .header-sub {
   font-size: 11px;
-  color: var(--text-2);
+  color: var(--text-3);
   font-weight: 300;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .btn-reset {
@@ -300,8 +310,8 @@ button {
 
 /* Progress strip */
 .progress-strip {
-  height: 3px;
-  background: var(--surface-2);
+  height: 2px;
+  background: rgba(255,255,255,0.05);
 }
 
 .progress-fill {
@@ -317,7 +327,7 @@ button {
   gap: 10px;
   margin: 14px 16px 0;
   padding: 12px 14px;
-  background: var(--surface);
+  background: rgba(244,192,209,0.06);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
 }
@@ -326,8 +336,8 @@ button {
 
 .warmup-label {
   font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-3);
   margin-bottom: 3px;
@@ -344,10 +354,10 @@ button {
 .completion-banner {
   display: none;
   margin: 14px 16px 0;
-  padding: 22px 20px;
-  background: rgba(var(--accent-rgb), 0.1);
-  border: 1px solid rgba(var(--accent-rgb), 0.3);
-  border-radius: var(--r-lg);
+  padding: 26px 20px;
+  background: rgba(var(--accent-rgb), 0.10);
+  border: 1px solid rgba(var(--accent-rgb), 0.30);
+  border-radius: var(--r-xl);
   text-align: center;
 }
 
@@ -356,15 +366,15 @@ button {
   animation: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.completion-emoji { font-size: 34px; margin-bottom: 10px; }
+.completion-emoji { font-size: 36px; margin-bottom: 12px; }
 
 .completion-title {
   font-family: var(--font-h);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: italic;
   color: rgba(var(--accent-rgb), 1);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .completion-sub {
@@ -393,8 +403,8 @@ button {
 }
 
 .exercise-card.is-done {
-  background: rgba(var(--accent-rgb), 0.05);
-  border-color: rgba(var(--accent-rgb), 0.25);
+  background: rgba(var(--accent-rgb), 0.06);
+  border-color: rgba(var(--accent-rgb), 0.28);
 }
 
 /* ── Top row ────────────────────────────────────────────────── */
@@ -410,7 +420,7 @@ button {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid var(--border-2);
+  border: 1.5px solid var(--border-2);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -442,17 +452,19 @@ button {
 .ex-name {
   font-family: var(--font-h);
   font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.28;
   margin-bottom: 4px;
+  color: var(--text);
   transition: color 0.3s, text-decoration-color 0.3s;
 }
 
 .is-done .ex-name {
   text-decoration: line-through;
   text-decoration-color: var(--text-3);
-  color: var(--text-2);
+  color: var(--text-3);
+  font-style: normal;
 }
 
 .sub-badge {
@@ -460,10 +472,11 @@ button {
   font-family: var(--font-b);
   font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  font-style: normal;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba(var(--accent-rgb), 0.8);
-  background: rgba(var(--accent-rgb), 0.1);
+  color: rgba(var(--accent-rgb), 0.9);
+  background: rgba(var(--accent-rgb), 0.12);
   padding: 2px 6px;
   border-radius: 4px;
   vertical-align: middle;
@@ -473,10 +486,11 @@ button {
 
 .ex-muscle {
   font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(var(--accent-rgb), 0.75);
+  color: rgba(var(--accent-rgb), 0.70);
 }
 
 /* ── Stats row ──────────────────────────────────────────────── */
@@ -492,13 +506,13 @@ button {
   border-radius: var(--r-md);
   padding: 9px 8px 8px;
   text-align: center;
+  border: 1px solid var(--border);
 }
 
 .ex-stat-val {
   font-family: var(--font-h);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: normal;
   line-height: 1;
   color: var(--text);
 }
@@ -513,8 +527,8 @@ button {
 
 .ex-stat-label {
   font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-3);
   margin-top: 4px;
@@ -533,6 +547,7 @@ button {
   gap: 6px;
   padding: 9px 11px;
   background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: var(--r-md);
   font-size: 12px;
   color: var(--text-2);
@@ -541,7 +556,7 @@ button {
 }
 
 .btn-notes.disabled {
-  opacity: 0.35;
+  opacity: 0.30;
   pointer-events: none;
 }
 
@@ -552,8 +567,8 @@ button {
   align-items: center;
   gap: 5px;
   padding: 9px 13px;
-  background: rgba(var(--accent-rgb), 0.1);
-  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  background: rgba(var(--accent-rgb), 0.10);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
   border-radius: var(--r-md);
   font-size: 12px;
   font-weight: 500;
@@ -563,20 +578,23 @@ button {
   transition: background 0.15s;
 }
 
-.btn-sub:active { background: rgba(var(--accent-rgb), 0.2); }
+.btn-sub:active { background: rgba(var(--accent-rgb), 0.20); }
 
 /* ── Notes expand ───────────────────────────────────────────── */
 .ex-notes {
   display: none;
   margin-top: 9px;
-  padding: 10px 12px;
-  background: var(--surface-2);
+  padding: 10px 13px;
+  background: rgba(244,192,209,0.06);
   border-radius: var(--r-md);
-  border-left: 2px solid rgba(var(--accent-rgb), 0.5);
+  border-left: 2px solid rgba(var(--accent-rgb), 0.45);
+  border-radius: 0;          /* reset pour garder uniquement le border-left */
+  border-top-right-radius: var(--r-md);
+  border-bottom-right-radius: var(--r-md);
   font-size: 13px;
   color: var(--text-2);
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .ex-notes.visible { display: block; animation: fade-in 0.2s ease; }
@@ -587,13 +605,13 @@ button {
 .sheet-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.72);
+  background: rgba(20,8,24,0.80);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .sheet-backdrop.open {
@@ -611,7 +629,7 @@ button {
   background: var(--surface);
   border: 1px solid var(--border-2);
   border-bottom: none;
-  border-radius: 24px 24px 0 0;
+  border-radius: 26px 26px 0 0;
   z-index: 101;
   transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1);
   padding: 0 18px calc(var(--safe-bot) + 20px);
@@ -625,17 +643,17 @@ button {
 }
 
 .sheet-handle {
-  width: 38px;
-  height: 4px;
-  background: var(--surface-2);
+  width: 36px;
+  height: 3px;
+  background: rgba(244,192,209,0.20);
   border-radius: 2px;
-  margin: 14px auto 22px;
+  margin: 14px auto 24px;
 }
 
 .sheet-eyebrow {
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-3);
   margin-bottom: 5px;
@@ -643,17 +661,18 @@ button {
 
 .sheet-ex-name {
   font-family: var(--font-h);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: italic;
   line-height: 1.2;
-  margin-bottom: 22px;
+  color: var(--text);
+  margin-bottom: 24px;
 }
 
 .sheet-section {
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-2);
   margin-bottom: 10px;
@@ -685,10 +704,11 @@ button {
 .sub-card-name {
   font-family: var(--font-h);
   font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: normal;
+  font-style: italic;
   line-height: 1.25;
   flex: 1;
+  color: var(--text);
 }
 
 .sub-card-stats {
@@ -701,6 +721,7 @@ button {
   font-size: 11px;
   padding: 3px 8px;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 100px;
   color: var(--text-2);
   white-space: nowrap;
@@ -710,7 +731,7 @@ button {
   font-size: 12px;
   color: var(--text-3);
   font-weight: 300;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .btn-sheet-cancel {
@@ -718,7 +739,8 @@ button {
   margin-top: 8px;
   padding: 14px;
   border-radius: var(--r-md);
-  background: var(--surface-2);
+  background: rgba(244,192,209,0.06);
+  border: 1px solid var(--border);
   font-size: 14px;
   font-weight: 400;
   color: var(--text-2);
@@ -737,7 +759,7 @@ button {
 }
 
 @keyframes pop-in {
-  from { opacity: 0; transform: scale(0.88); }
+  from { opacity: 0; transform: scale(0.90); }
   to   { opacity: 1; transform: scale(1); }
 }
 
