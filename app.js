@@ -192,14 +192,15 @@ function renderSession() {
         </div>
       </header>
 
-      <!-- Échauffement -->
+      <!-- Échauffement (masqué si absent) -->
+      ${session.warmup ? `
       <div class="warmup-banner">
         <span class="warmup-icon">${ICONS.flame}</span>
         <div>
           <div class="warmup-label">Échauffement</div>
           <div class="warmup-text">${session.warmup}</div>
         </div>
-      </div>
+      </div>` : ''}
 
       <!-- Bannière de fin de séance -->
       <div class="completion-banner ${allDone ? 'visible' : ''}" id="completion-banner">
@@ -211,6 +212,16 @@ function renderSession() {
       <!-- Liste d'exercices -->
       <div class="exercises-list" id="exercises-list">
         ${session.exercises.map(ex => exerciseCardHTML(session.id, ex)).join('')}
+
+        <!-- Cardio finisher -->
+        ${session.cardioFinisher ? `
+        <div class="cardio-finisher-banner">
+          <span class="warmup-icon">🏃</span>
+          <div>
+            <div class="warmup-label">Cardio finisher</div>
+            <div class="warmup-text">${session.cardioFinisher}</div>
+          </div>
+        </div>` : ''}
       </div>
 
     </div>

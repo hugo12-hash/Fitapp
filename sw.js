@@ -5,7 +5,7 @@
    le rechargement du cache sur les appareils existants.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'gym-app-v1';
+const CACHE_NAME = 'gym-app-v3'; /* ← incrémenter à chaque déploiement */
 
 const ASSETS_TO_CACHE = [
   '.',

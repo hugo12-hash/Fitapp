@@ -767,3 +767,22 @@ button {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Cardio finisher banner ─────────────────────────────────── */
+.cardio-finisher-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(212,83,126,0.10);
+  border: 1px solid rgba(212,83,126,0.28);
+  border-radius: var(--r-lg);
+}
+
+.cardio-finisher-banner .warmup-label {
+  color: rgba(212,83,126,0.85);
+}
+
+.cardio-finisher-banner .warmup-text {
+  color: var(--text-2);
+}
